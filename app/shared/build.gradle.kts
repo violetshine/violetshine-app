@@ -38,3 +38,9 @@ kotlin {
     }
   }
 }
+
+compose.resources {
+  publicResClass = true
+  packageOfResClass = "net.violetshine.app.resources"
+  generateResClass = auto
+}

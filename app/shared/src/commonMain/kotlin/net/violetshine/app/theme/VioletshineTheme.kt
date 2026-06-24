@@ -11,9 +11,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
 
-import violetshineapp.app.shared.generated.resources.Res as R
-import violetshineapp.app.shared.generated.resources.DarkmodeOn_Regular
-import violetshineapp.app.shared.generated.resources.DarkmodeOn_Bold
+import net.violetshine.app.resources.Res as R
+import net.violetshine.app.resources.DarkmodeOn_Regular
+import net.violetshine.app.resources.DarkmodeOn_Bold
 
 /**
  * The custom theme of the app.
