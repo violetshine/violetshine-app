@@ -8,11 +8,13 @@ import androidx.compose.ui.graphics.Color
 data class ColourScheme(
   val primary: Color,
   val background: Color,
+  val onBackground: Color,
 )
 
 internal val LocalColourScheme = staticCompositionLocalOf {
   ColourScheme(
     primary = Color.Unspecified,
     background = Color.Unspecified,
+    onBackground = Color.Unspecified,
   )
 }

@@ -27,6 +27,7 @@ fun VioletshineTheme(
   val darkModeColours = ColourScheme(
     primary = Color(0x7700f0),
     background = Color.DarkGray,
+    onBackground = Color.White,
   )
 
   val darkmodeFamily = FontFamily(
