@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.extraProperties
+
 plugins {
   alias(libs.plugins.kotlin.jvm)
   alias(ktorLibs.plugins.ktor)
@@ -12,12 +14,13 @@ application {
   mainClass = "io.ktor.server.tomcat.jakarta.EngineMain"
 }
 
-val copyFrontendDistCSSToServerResources by tasks.registering(Copy::class) {
-  description = "Copies the CSS from the :frontend project's output to the app's static resources."
-  dependsOn(project(":frontend").tasks.named("jsBrowserDistribution"))
-  from(project(":frontend").layout.buildDirectory.dir("dist/js/productionExecutable"))
-  include("**/*.css", "**/*.css.map")
-  into(layout.buildDirectory.dir("resources/main/static/css"))
+kotlin {
+  jvmToolchain(25)
+}
+
+gretty {
+  servletContainer = "tomcat11"
+  contextPath = "/"
 }
 
 val copyFrontendDistJSToServerResources by tasks.registering(Copy::class) {
@@ -28,23 +31,54 @@ val copyFrontendDistJSToServerResources by tasks.registering(Copy::class) {
   into(layout.buildDirectory.dir("resources/main/static/js"))
 }
 
+val tailwindBuild = tasks.register<Exec>("tailwindBuild") {
+  description = "Runs Tailwind to build the CSS bundle."
+  workingDir = projectDir
+  commandLine = listOf("pnpm", "exec", "tailwindcss", "-i", "./src/main/resources/styles/styles.css", "-o", "./src/main/resources/static/css/styles.css")
+}
+
+val tailwindWatch = tasks.register("tailwindWatch") {
+  description = "Starts pnpm exec tailwindcss --watch."
+  doFirst {
+    extraProperties.set("process", ProcessBuilder()
+      .directory(projectDir)
+      .command(
+        "pnpm",
+        "exec",
+        "tailwindcss",
+        "-i",
+        "./src/main/resources/styles/styles.css",
+        "-o",
+        "./src/main/resources/static/css/styles.css",
+        "--watch",
+      )
+      .start()
+    )
+  }
+}
+
+val tailwindStopWatch = tasks.register("tailwindStopWatch") {
+  description = "Stops the Tailwind watch process."
+  doFirst {
+    val process = tasks.getByName("tailwindWatch").extraProperties.get("process")
+    if (process is Process) {
+      process.destroy()
+    }
+  }
+}
+
 tasks.named("processResources") {
-  dependsOn(copyFrontendDistCSSToServerResources)
-  dependsOn(copyFrontendDistJSToServerResources)
-}
-
-kotlin {
-  jvmToolchain(25)
-}
-
-gretty {
-  servletContainer = "tomcat11"
-  contextPath = "/"
+  dependsOn(copyFrontendDistJSToServerResources, tailwindBuild)
 }
 
 afterEvaluate {
+  tasks.getByName("appRun") {
+    dependsOn(tailwindWatch)
+  }
+
   tasks.getByName("run") {
     dependsOn("appRun")
+    finalizedBy(tailwindStopWatch)
   }
 }
 
