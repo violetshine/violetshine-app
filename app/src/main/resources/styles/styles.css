@@ -1,0 +1,8 @@
+@import "tailwindcss" source(none);
+
+/* Backend .jsp files, excluding web.xml */
+@source "../../webapp";
+@source not "../../webapp/WEB-INF/web.xml";
+
+/* Frontend Kotlin files */
+@source "../../../../../frontend/src/jsMain/kotlin";
