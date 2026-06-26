@@ -63,6 +63,9 @@ dependencies {
   // Use Ktor in a servlet application with Tomcat
   implementation(ktorLibs.server.servlet)
 
+  // https://github.com/Kotlin/kotlinx-datetime
+  implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.8.0")
+
   testImplementation(kotlin("test"))
   testImplementation(ktorLibs.server.testHost)
 }
