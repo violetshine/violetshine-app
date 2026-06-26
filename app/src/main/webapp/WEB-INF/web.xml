@@ -4,17 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-  <servlet>
-    <display-name>KtorServlet</display-name>
-    <servlet-name>KtorServlet</servlet-name>
-    <servlet-class>io.ktor.server.servlet.jakarta.ServletApplicationEngine</servlet-class>
-    <init-param>
-      <param-name>io.ktor.ktor.config</param-name>
-      <param-value>application.yaml</param-value>
-    </init-param>
-    <async-supported>true</async-supported>
-  </servlet>
-
+  <!-- Servlet that handles .jsp files -->
   <servlet>
     <servlet-name>jsp</servlet-name>
     <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
@@ -33,6 +23,23 @@
     <servlet-name>jsp</servlet-name>
     <url-pattern>*.jsp</url-pattern>
   </servlet-mapping>
+
+  <!-- The default .jsp file to display from a directory -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- And Ktor handles everything else -->
+  <servlet>
+    <display-name>KtorServlet</display-name>
+    <servlet-name>KtorServlet</servlet-name>
+    <servlet-class>io.ktor.server.servlet.jakarta.ServletApplicationEngine</servlet-class>
+    <init-param>
+      <param-name>io.ktor.ktor.config</param-name>
+      <param-value>application.yaml</param-value>
+    </init-param>
+    <async-supported>true</async-supported>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>KtorServlet</servlet-name>
