@@ -12,25 +12,25 @@ application {
   mainClass = "io.ktor.server.tomcat.jakarta.EngineMain"
 }
 
-val copyWebDistCSSToServerResources by tasks.registering(Copy::class) {
-  description = "Copies the CSS from the :web project's output to the server's static resources."
-  dependsOn(project(":web").tasks.named("jsBrowserDistribution"))
-  from(project(":web").layout.buildDirectory.dir("dist/js/productionExecutable"))
+val copyFrontendDistCSSToServerResources by tasks.registering(Copy::class) {
+  description = "Copies the CSS from the :frontend project's output to the app's static resources."
+  dependsOn(project(":frontend").tasks.named("jsBrowserDistribution"))
+  from(project(":frontend").layout.buildDirectory.dir("dist/js/productionExecutable"))
   include("**/*.css", "**/*.css.map")
   into(layout.buildDirectory.dir("resources/main/static/css"))
 }
 
-val copyWebDistJSToServerResources by tasks.registering(Copy::class) {
-  description = "Copies the JavaScript from the :web project's output to the server's static resources."
-  dependsOn(project(":web").tasks.named("jsBrowserDistribution"))
-  from(project(":web").layout.buildDirectory.dir("dist/js/productionExecutable"))
+val copyFrontendDistJSToServerResources by tasks.registering(Copy::class) {
+  description = "Copies the JavaScript from the :frontend project's output to the app's static resources."
+  dependsOn(project(":frontend").tasks.named("jsBrowserDistribution"))
+  from(project(":frontend").layout.buildDirectory.dir("dist/js/productionExecutable"))
   include("**/*.js", "**/*.mjs", "**/*.js.map", "**/*.mjs.map")
   into(layout.buildDirectory.dir("resources/main/static/js"))
 }
 
 tasks.named("processResources") {
-  dependsOn(copyWebDistCSSToServerResources)
-  dependsOn(copyWebDistJSToServerResources)
+  dependsOn(copyFrontendDistCSSToServerResources)
+  dependsOn(copyFrontendDistJSToServerResources)
 }
 
 kotlin {

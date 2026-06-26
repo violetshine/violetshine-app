@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Violetshine</title>
 
-  <%@ include file="/WEB-INF/jspf/head.jspf" %>
+  <%@ include file="/WEB-INF/includes/head.jspf" %>
 </head>
 <body>
   <div class="app">

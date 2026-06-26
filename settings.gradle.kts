@@ -20,5 +20,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "violetshine-app"
 
-include(":server")
-include(":web")
+include(":app")
+include(":frontend")
