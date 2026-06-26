@@ -34,16 +34,14 @@ in
 
     JDK_HOME = "${toolchain.java-jdk.home}";
 
-    gradleBuildTask = "installDist";
+    gradleBuildTask = ":app:war";
 
     installPhase = ''
       runHook preInstall
       mkdir -p $out
-      cp -r app/build/install/app/* $out
+      cp -r app/build/libs/* $out
       runHook postInstall
     '';
-
-    meta.mainProgram = "app";
 
     meta.sourceProvenance = with lib.sourceTypes; [
       fromSource
