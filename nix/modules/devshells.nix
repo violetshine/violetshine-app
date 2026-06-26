@@ -18,6 +18,10 @@
             kotlin
           ];
 
+          packages = with pkgs; [
+            pnpm
+          ];
+
           shellHook = ''
             export GRADLE_USER_HOME=$(pwd)/.gradle
             alias update-deps='nix build .#default.mitmCache.updateScript -o ./update-deps.sh && ./update-deps.sh'
