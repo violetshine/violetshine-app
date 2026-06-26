@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.jspf": "html",
+    "*.css": "tailwindcss",
+  },
+}
