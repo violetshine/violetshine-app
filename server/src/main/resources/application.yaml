@@ -1,0 +1,9 @@
+ktor:
+  deployment:
+    port: 8080
+  application:
+    modules:
+      - net.violetshine.app.plugins.ResourcesKt.configureResources
+      - net.violetshine.app.plugins.SerialisationKt.configureSerialisation
+      - net.violetshine.app.plugins.StatusPagesKt.configureStatusPages
+      - net.violetshine.app.RoutingKt.configureRouting
