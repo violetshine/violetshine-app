@@ -2,6 +2,8 @@ package net.violetshine.app.template.navigation
 
 import io.ktor.server.html.*
 import kotlinx.html.*
+  
+import net.violetshine.app.template.component.curve.*
 
 class NavigationHeader : Template<FlowContent> {
   override fun FlowContent.apply() {
@@ -25,13 +27,17 @@ class NavigationHeader : Template<FlowContent> {
       }
 
       // Main navigation
-      div("pl-6 pr-6") {
+      div("relative w-full min-h-[88px] bg-violet-950 pl-6 pr-6") {
         a {
           
         }
         nav {
           
         }
+        curve(CurvePosition.BOTTOM_LEFT, "var(--color-violet-950)") {}
+        curve(CurvePosition.BOTTOM_RIGHT, "var(--color-violet-950)") {}
+        curve(CurvePosition.TOP_LEFT, "var(--color-dark-violet)") {}
+        curve(CurvePosition.TOP_RIGHT, "var(--color-dark-violet)") {}
       }
     }
   }
