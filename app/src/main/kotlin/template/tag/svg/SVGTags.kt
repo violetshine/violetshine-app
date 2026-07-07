@@ -20,6 +20,10 @@ fun G.path(block: PATH.() -> Unit = {}) {
   PATH(consumer).visit(block)
 }
 
+fun SVG.path(block: PATH.() -> Unit = {}) {
+  PATH(consumer).visit(block)
+}
+
 class DEFS(consumer: TagConsumer<*>) : 
   HTMLTag("defs", consumer, emptyMap(), inlineTag = true, emptyTag = false),
     HtmlInlineTag
@@ -41,5 +45,9 @@ class RECT(consumer: TagConsumer<*>) :
     HtmlInlineTag
 
 fun CLIPPATH.rect(block: RECT.() -> Unit = {}) {
+  RECT(consumer).visit(block)
+}
+
+fun SVG.rect(block: RECT.() -> Unit = {}) {
   RECT(consumer).visit(block)
 }
