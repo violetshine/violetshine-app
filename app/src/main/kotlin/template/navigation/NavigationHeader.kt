@@ -36,8 +36,8 @@ class NavigationHeader : Template<FlowContent> {
         }
         curve(CurvePosition.BOTTOM_LEFT, "var(--color-surface-2)") {}
         curve(CurvePosition.BOTTOM_RIGHT, "var(--color-surface-2)") {}
-        curve(CurvePosition.TOP_LEFT, "var(--color-surface-2)") {}
-        curve(CurvePosition.TOP_RIGHT, "var(--color-surface-2)") {}
+        curve(CurvePosition.TOP_LEFT, "var(--color-surface)") {}
+        curve(CurvePosition.TOP_RIGHT, "var(--color-surface)") {}
       }
     }
   }
