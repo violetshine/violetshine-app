@@ -1,24 +1,44 @@
 @theme {
   --color-*: initial;
 
-	--color-black: oklch(0 0 0);
-	--color-white: oklch(1 0 0);
+	--color-black: oklch(0% 0 0);
+	--color-white: oklch(100% 0 0);
 
-  --color-dark-violet-900: oklch(17% 0.141 293);
-  --color-dark-violet-800: oklch(22% 0.141 293);
-  --color-dark-violet-700: oklch(27% 0.141 293);
-  --color-dark-violet-600: oklch(32% 0.141 293);
-  --color-dark-violet-500: oklch(37% 0.141 293);
-  --color-dark-violet-400: oklch(42% 0.141 293);
+  --color-dark-violet-950: oklch(7% 0.17 291.87);
+  --color-dark-violet-900: oklch(13% 0.17 291.87);
+  --color-dark-violet-800: oklch(19% 0.17 291.87);
+  --color-dark-violet-700: oklch(25% 0.17 291.87);
+
+  --color-violet-950: oklch(29.7% 0.17 291.87);
+  --color-violet-900: oklch(35.2% 0.17 291.87);
+  --color-violet-800: oklch(40.7% 0.17 291.87);
+  --color-violet-700: oklch(46.2% 0.17 291.87);
+  --color-violet-600: oklch(51.7% 0.17 291.87);
+  --color-violet-500: oklch(57.2% 0.17 291.87);
+  --color-violet-400: oklch(62.7% 0.17 291.87);
+  --color-violet-300: oklch(68.2% 0.17 291.87);
+  --color-violet-200: oklch(73.7% 0.17 291.87);
+  --color-violet-100: oklch(79.2% 0.17 291.87);
+  --color-violet-50: oklch(84.7% 0.17 291.87);
+
+  --color-purple-950: oklch(29.7% 0.15 303.724);
+  --color-purple-900: oklch(35.2% 0.15 303.724);
+  --color-purple-800: oklch(40.7% 0.15 303.724);
+  --color-purple-700: oklch(46.2% 0.15 303.724);
+  --color-purple-600: oklch(51.7% 0.15 303.724);
+  --color-purple-500: oklch(57.2% 0.15 303.724);
+  --color-purple-400: oklch(62.7% 0.15 303.724);
+  --color-purple-300: oklch(68.2% 0.15 303.724);
+  --color-purple-200: oklch(73.7% 0.15 303.724);
+  --color-purple-100: oklch(79.2% 0.15 303.724);
+  --color-purple-50: oklch(84.7% 0.15 303.724);
 }
 
 @theme inline {
 	--color-text: var(--color-white);
 
-  --color-surface: var(--color-dark-violet-900);
-	--color-surface-2: var(--color-dark-violet-800);
-	--color-surface-3: var(--color-dark-violet-700);
-	--color-surface-4: var(--color-dark-violet-600);
-  --color-surface-5: var(--color-dark-violet-500);
-  --color-surface-6: var(--color-dark-violet-400);
+  --color-surface: var(--color-dark-violet-950);
+	--color-surface-2: var(--color-dark-violet-900);
+	--color-surface-3: var(--color-dark-violet-800);
+	--color-surface-4: var(--color-dark-violet-700);
 }
