@@ -10,4 +10,6 @@
 /* Frontend Kotlin files */
 @source "../../../../../frontend/src/jsMain/kotlin";
 
-@import "./colours.css";
+@import "./theme/colours.css";
+
+@import "./animations/wave-swell.css";

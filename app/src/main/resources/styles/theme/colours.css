@@ -1,0 +1,24 @@
+@theme {
+  --color-*: initial;
+
+	--color-black: oklch(0 0 0);
+	--color-white: oklch(1 0 0);
+
+  --color-dark-violet-900: oklch(17% 0.141 293);
+  --color-dark-violet-800: oklch(22% 0.141 293);
+  --color-dark-violet-700: oklch(27% 0.141 293);
+  --color-dark-violet-600: oklch(32% 0.141 293);
+  --color-dark-violet-500: oklch(37% 0.141 293);
+  --color-dark-violet-400: oklch(42% 0.141 293);
+}
+
+@theme inline {
+	--color-text: var(--color-white);
+
+  --color-surface: var(--color-dark-violet-900);
+	--color-surface-2: var(--color-dark-violet-800);
+	--color-surface-3: var(--color-dark-violet-700);
+	--color-surface-4: var(--color-dark-violet-600);
+  --color-surface-5: var(--color-dark-violet-500);
+  --color-surface-6: var(--color-dark-violet-400);
+}
