@@ -1,0 +1,15 @@
+@theme {
+	--animate-wave-swell-1: swell 7s ease -1.25s infinite;
+	--animate-wave-swell-2: swell 5s ease 1s infinite;
+	--animate-wave-swell-3: swell 7s 3s ease 2s infinite;
+
+	@keyframes swell {
+		0%, 100% {
+			transform: translate3d(0, 0, 0);
+		}
+	
+		50% {
+			transform: translate3d(0, 10px, 0);
+		}
+	}
+}
