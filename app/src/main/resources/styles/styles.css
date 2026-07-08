@@ -12,4 +12,5 @@
 
 @import "./theme/colours.css";
 
+@import "./animations/header-slide.css";
 @import "./animations/wave-swell.css";

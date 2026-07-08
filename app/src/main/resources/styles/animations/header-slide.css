@@ -1,0 +1,24 @@
+@theme {
+	--animate-header-slide-down: header-slide-down 0.15s linear 1 !important;
+	--animate-header-slide-up: header-slide-up 0.15s linear 1 !important;
+
+	@keyframes header-slide-down {
+		0% {
+			transform: translateY(-100%);
+		}
+
+		100% {
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes header-slide-up {
+		0% {
+			transform: translateY(0);
+		}
+
+		100% {
+			transform: translateY(-100%);
+		}
+	}
+}
