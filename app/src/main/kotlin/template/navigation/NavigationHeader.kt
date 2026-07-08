@@ -8,6 +8,8 @@ import net.violetshine.app.template.component.curve.*
 class NavigationHeader : Template<FlowContent> {
   override fun FlowContent.apply() {
     header("bg-transparent relative z-50") {
+      attributes["id"] = "navigation"
+
       // Secondary navigation
       div("flex flex-row justify-between pl-6 pr-6 pt-4 pb-4 bg-surface") {
         // Alert

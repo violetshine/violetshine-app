@@ -1,8 +1,10 @@
-package net.violetshine.website
+package net.violetshine.app.frontend
 
-import kotlinx.browser.document
-import kotlinx.browser.window
+import net.violetshine.app.frontend.state.ScrollState
 
 fun main() {
-  console.log("Loaded")
+  val scrollState = ScrollState()
+  val navigationHeader = NavigationHeader()
+
+  scrollState.addObserver("navigation", navigationHeader::onScroll)
 }
